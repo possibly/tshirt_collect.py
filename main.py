@@ -17,3 +17,17 @@ myorders.getPeopleWhoOrderedSize('m')
 Outputs: 
 1 people ordered the m size: ['Tyler <tylerbrothers1@gmail.com>']
 '''
+myorders.getNames()
+'''
+Outputs:
+The following people have orders:
+Tyler
+person2
+'''
+myorders.getEmails()
+'''
+Outputs:
+The emails of the people who have ordered are:
+tylerbrothers1@gmail.com
+theiremail@whatevs.com
+'''
