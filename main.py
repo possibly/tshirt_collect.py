@@ -3,9 +3,8 @@ from Order import Order
 
 myorders = OrderCollection([
            Order('Tyler','m','tylerbrothers1@gmail.com'),
-           Order('person2','xl','theiremail@whatevs.com'),
+           Order('person2','xl','theiremail@whatevs.com',True),
           ])
-
 myorders.getPeopleWhoOrderedSize()
 '''
 Outputs: 
@@ -30,4 +29,10 @@ Outputs:
 The emails of the people who have ordered are:
 tylerbrothers1@gmail.com
 theiremail@whatevs.com
+'''
+myorders.displayPayInfo()
+'''
+Outputs:
+1 people can pay: ['person2 <theiremail@whatevs.com>']
+1 people who cannot pay: ['Tyler <tylerbrothers1@gmail.com>']
 '''

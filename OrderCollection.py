@@ -1,6 +1,7 @@
 import Order
 
 class OrderCollection:
+
   def __init__(self,arrayOfOrders):
     self.orders = arrayOfOrders
     self.orderSizes = self._orderSizes()
@@ -44,3 +45,19 @@ class OrderCollection:
     print 'The emails of the people who have ordered are:'
     for email in emails:
       print email
+
+  # print the number of people who can pay, and their names
+  # and the number of people who cant pay, and their names.
+  def displayPayInfo(self):
+    numberOfPeopleWhoCanPay = 0
+    peopleWhoCantPay = []
+    peopleWhoCanPay = []
+    for order in self.orders:
+      if (order.canPay == True):
+        numberOfPeopleWhoCanPay+=1
+        peopleWhoCanPay.append(order)
+      else:
+        peopleWhoCantPay.append(order)
+    print '{0} people can pay: {1}'.format(numberOfPeopleWhoCanPay, list(str(order) for order in peopleWhoCanPay))
+    print '{0} people who cannot pay: {1}'.format(len(self.orders) - numberOfPeopleWhoCanPay, list(str(order) for order in peopleWhoCantPay))
+
