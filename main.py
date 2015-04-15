@@ -1,38 +1,38 @@
 from OrderCollection import OrderCollection
-from Order import Order
 
-myorders = OrderCollection([
-           Order('Tyler','m','tylerbrothers1@gmail.com'),
-           Order('person2','xl','theiremail@whatevs.com',True),
-          ])
-myorders.getPeopleWhoOrderedSize()
+    
+myord = OrderCollection([
+                {'name':'tyler', 'otherprop':1},
+                {'size':'m','name':'sarah'}
+              ])
+
+filteredOrders = myord.getPeopleWhoOrdered({
+                                            'name':'sarah',
+                                          })
+
+print filteredOrders
 '''
-Outputs: 
-1 people ordered the m size: ['Tyler <tylerbrothers1@gmail.com>']
-1 people ordered the l size: ['person2 <theiremail@whatevs.com>']
+Returns: 
+>>> [{'name': 'sarah', 'size': 'm'}]
 '''
-myorders.getPeopleWhoOrderedSize('m')
+
+filteredOrders = myord.getPeopleWhoOrdered({
+                                            'name':'tyler',
+                                          },strict=True)
+
+print filteredOrders
 '''
-Outputs: 
-1 people ordered the m size: ['Tyler <tylerbrothers1@gmail.com>']
+Returns:
+>>> Sorry, no orders were found that match your criteria.
 '''
-myorders.getNames()
+
+filteredOrders = myord.getPeopleWhoOrdered({
+                                            'size':'m',
+                                            'name':'sarah'
+                                          },strict=True)
+
+print filteredOrders
 '''
-Outputs:
-The following people have orders:
-Tyler
-person2
-'''
-myorders.getEmails()
-'''
-Outputs:
-The emails of the people who have ordered are:
-tylerbrothers1@gmail.com
-theiremail@whatevs.com
-'''
-myorders.displayPayInfo()
-'''
-Outputs:
-1 people can pay: ['person2 <theiremail@whatevs.com>']
-1 people who cannot pay: ['Tyler <tylerbrothers1@gmail.com>']
+Returns:
+>>> [{'name': 'sarah', 'size': 'm'}]
 '''
